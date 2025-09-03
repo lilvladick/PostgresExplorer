@@ -9,9 +9,11 @@ import SwiftUI
 
 @main
 struct PostgresExplorerApp: App {
+    @AppStorage("isDarkMode") private var isDarkMode: Bool = false
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            SidebarView().preferredColorScheme(isDarkMode ? .dark : .light)
         }
     }
 }

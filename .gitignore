@@ -1,0 +1,42 @@
+# macOS system files
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+
+# Xcode/Swift project files
+*.xcuserstate
+*.xcscmblueprint
+*.xccheckout
+*.xcodeproj/*
+*.xcworkspace/*
+build/
+DerivedData/
+*.pbxuser
+*.mode1v3
+*.mode2v3
+*.perspectivev3
+
+# Swift Package Manager artifacts
+.build/
+Packages/
+Package.resolved
+
+# Postgres package artifacts
+# (как правило, работа с Postgres ведётся через сторонние пакеты, например, PostgresClientKit)
+# Сюда стоит добавить:
+.vscode/
+.idea/
+env/
+*.log
+*.sqlite
+postgres-data/
+*.pid
+
+# User-specific files
+*.swp
+*~
+*.swo
+
