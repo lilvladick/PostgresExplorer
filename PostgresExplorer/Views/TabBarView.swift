@@ -1,12 +1,12 @@
 import SwiftUI
 
-struct SidebarView: View {
+struct TabBarView: View {
     @State var selectedTabs: Tabs = .databases
    
     var body: some View {
         TabView(selection: $selectedTabs) {
             Tab("Databases", systemImage: "list.bullet.rectangle.fill", value: .databases) {
-                EmptyView()
+                DatabaseView()
             }
             Tab("Settings", systemImage: "gearshape", value: .settings) {
                 SettingsView()
@@ -16,5 +16,5 @@ struct SidebarView: View {
 }
 
 #Preview {
-    SidebarView()
+    TabBarView()
 }
