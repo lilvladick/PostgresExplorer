@@ -3,7 +3,7 @@
 <p align="center">
   <img src="https://github.com/user-attachments/assets/339a98df-47de-4355-b01e-7013f007f685" alt="PostgreSQL Viewer Logo" width="250"/>
 </p>
-<h1 align="center">PostgreSQL Viewer for macOS</h1>
+<h1 align="center">Postgres Explorer for macOS</h1>
 
 <p align="center">
 A macOS application for managing PostgreSQL databases. <br>
