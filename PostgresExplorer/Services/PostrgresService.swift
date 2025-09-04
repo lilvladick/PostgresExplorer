@@ -1,4 +1,5 @@
 import PostgresClientKit
+import Foundation
 
 struct PostgresService {
     private var config: PostgresClientKit.ConnectionConfiguration
@@ -40,8 +41,11 @@ struct PostgresService {
         return databases
     }
 
-    func fetchTables() throws -> [String] {
-        let connection = try PostgresClientKit.Connection(configuration: config)
+    func fetchTables(database: String) throws -> [String] {
+        var dbConfig = config
+        dbConfig.database = database
+        
+        let connection = try PostgresClientKit.Connection(configuration: dbConfig)
         defer { connection.close() }
 
         let statement = try connection.prepareStatement(
@@ -59,5 +63,37 @@ struct PostgresService {
             tables.append(tableName)
         }
         return tables
+    }
+    
+    func fetchTableData(database: String, table: String) throws -> (rows: [[String]], columns: [String]) {
+        var dbConfig = config
+        dbConfig.database = database
+
+        let connection = try PostgresClientKit.Connection(configuration: dbConfig)
+        defer { connection.close() }
+
+        let sql = "SELECT * FROM \(table);"
+
+        let statement = try connection.prepareStatement(text: sql)
+        defer { statement.close() }
+
+        let cursor = try statement.execute(retrieveColumnMetadata: true)
+        defer { cursor.close() }
+
+        let columns = (cursor.columns ?? []).map { $0.name }
+
+        var rows: [[String]] = []
+        for row in cursor {
+            let cols = try row.get().columns
+            let values = try cols.map { try $0.optionalString() ?? "NULL" }
+            rows.append(values)
+        }
+
+        return (rows, columns)
+    }
+    
+    // помогает если имя таблицы имеет пробелы и спецсимволы (постгря экранирует их в ковычки)
+    private func quoteIdent(_ ident: String) -> String {
+        "\"\(ident.replacingOccurrences(of: "\"", with: "\"\""))\""
     }
 }

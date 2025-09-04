@@ -17,6 +17,7 @@ struct PostgresExplorerApp: App {
             TabBarView()
                 .preferredColorScheme(isDarkMode ? .dark : .light)
                 .environmentObject(connectionVM)
+                .tint(Color.indigo)
         }
     }
 }
