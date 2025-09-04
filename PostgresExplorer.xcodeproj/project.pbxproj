@@ -10,14 +10,43 @@
 		5E3358CE2E6892E70067EAB2 /* PostgresClientKit in Frameworks */ = {isa = PBXBuildFile; productRef = 5E3358CD2E6892E70067EAB2 /* PostgresClientKit */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		5E9BDCC02E69DC060061F595 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5E3358B62E6891AD0067EAB2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5E3358BD2E6891AD0067EAB2;
+			remoteInfo = PostgresExplorer;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		5E3358BE2E6891AD0067EAB2 /* PostgresExplorer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PostgresExplorer.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5E9BDCBC2E69DC060061F595 /* PostgresExplorerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PostgresExplorerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		5E9BDCC92E69DCE90061F595 /* Exceptions for "PostgresExplorer" folder in "PostgresExplorerTests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Services/PostgresServerProtocol.swift,
+			);
+			target = 5E9BDCBB2E69DC060061F595 /* PostgresExplorerTests */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		5E3358C02E6891AD0067EAB2 /* PostgresExplorer */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				5E9BDCC92E69DCE90061F595 /* Exceptions for "PostgresExplorer" folder in "PostgresExplorerTests" target */,
+			);
 			path = PostgresExplorer;
+			sourceTree = "<group>";
+		};
+		5E9BDCBD2E69DC060061F595 /* PostgresExplorerTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = PostgresExplorerTests;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -31,6 +60,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		5E9BDCB92E69DC060061F595 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -38,6 +74,7 @@
 			isa = PBXGroup;
 			children = (
 				5E3358C02E6891AD0067EAB2 /* PostgresExplorer */,
+				5E9BDCBD2E69DC060061F595 /* PostgresExplorerTests */,
 				5E3358BF2E6891AD0067EAB2 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -46,6 +83,7 @@
 			isa = PBXGroup;
 			children = (
 				5E3358BE2E6891AD0067EAB2 /* PostgresExplorer.app */,
+				5E9BDCBC2E69DC060061F595 /* PostgresExplorerTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -76,6 +114,29 @@
 			productReference = 5E3358BE2E6891AD0067EAB2 /* PostgresExplorer.app */;
 			productType = "com.apple.product-type.application";
 		};
+		5E9BDCBB2E69DC060061F595 /* PostgresExplorerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5E9BDCC22E69DC060061F595 /* Build configuration list for PBXNativeTarget "PostgresExplorerTests" */;
+			buildPhases = (
+				5E9BDCB82E69DC060061F595 /* Sources */,
+				5E9BDCB92E69DC060061F595 /* Frameworks */,
+				5E9BDCBA2E69DC060061F595 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5E9BDCC12E69DC060061F595 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				5E9BDCBD2E69DC060061F595 /* PostgresExplorerTests */,
+			);
+			name = PostgresExplorerTests;
+			packageProductDependencies = (
+			);
+			productName = PostgresExplorerTests;
+			productReference = 5E9BDCBC2E69DC060061F595 /* PostgresExplorerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -88,6 +149,10 @@
 				TargetAttributes = {
 					5E3358BD2E6891AD0067EAB2 = {
 						CreatedOnToolsVersion = 26.0;
+					};
+					5E9BDCBB2E69DC060061F595 = {
+						CreatedOnToolsVersion = 26.0;
+						TestTargetID = 5E3358BD2E6891AD0067EAB2;
 					};
 				};
 			};
@@ -109,12 +174,20 @@
 			projectRoot = "";
 			targets = (
 				5E3358BD2E6891AD0067EAB2 /* PostgresExplorer */,
+				5E9BDCBB2E69DC060061F595 /* PostgresExplorerTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		5E3358BC2E6891AD0067EAB2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5E9BDCBA2E69DC060061F595 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -131,7 +204,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		5E9BDCB82E69DC060061F595 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		5E9BDCC12E69DC060061F595 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5E3358BD2E6891AD0067EAB2 /* PostgresExplorer */;
+			targetProxy = 5E9BDCC02E69DC060061F595 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		5E3358C72E6891B00067EAB2 /* Debug */ = {
@@ -340,6 +428,46 @@
 			};
 			name = Release;
 		};
+		5E9BDCC32E69DC060061F595 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = BDHB667Z99;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.MegaNews.PostgresExplorerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PostgresExplorer.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/PostgresExplorer";
+			};
+			name = Debug;
+		};
+		5E9BDCC42E69DC060061F595 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = BDHB667Z99;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.MegaNews.PostgresExplorerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PostgresExplorer.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/PostgresExplorer";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -357,6 +485,15 @@
 			buildConfigurations = (
 				5E3358CA2E6891B00067EAB2 /* Debug */,
 				5E3358CB2E6891B00067EAB2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5E9BDCC22E69DC060061F595 /* Build configuration list for PBXNativeTarget "PostgresExplorerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5E9BDCC32E69DC060061F595 /* Debug */,
+				5E9BDCC42E69DC060061F595 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

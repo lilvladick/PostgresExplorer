@@ -148,3 +148,5 @@ struct PostgresService {
         "\"\(ident.replacingOccurrences(of: "\"", with: "\"\""))\""
     }
 }
+
+extension PostgresService: PostgresServiceProtocol {}
