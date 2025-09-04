@@ -15,6 +15,8 @@ class ConnectionViewModel: ObservableObject {
     @Published var selectedTable: String?
     @Published var tableColumns: [String] = []
     @Published var tableRows: [[String]] = []
+    
+    @Published var consoleOutput: String = ""
 
     enum ConnectionStatus {
         case success
@@ -74,6 +76,62 @@ class ConnectionViewModel: ObservableObject {
                 self.errorMessage = "Error: \(error.localizedDescription)"
                 self.tableColumns = []
                 self.tableRows = []
+            }
+        }
+    }
+    
+    func deleteDatabase(_ db: String) {
+        guard let service else { return }
+        Task {
+            do {
+                try service.deleteDatabase(db)
+                databases.removeAll { $0 == db }
+                tablesByDatabase.removeValue(forKey: db)
+            } catch {
+                errorMessage = "Error: \(error.localizedDescription)"
+            }
+        }
+    }
+
+    func deleteTable(database: String, table: String) {
+        guard let service else { return }
+        Task {
+            do {
+                try service.deleteTable(database: database, table: table)
+                tablesByDatabase[database]?.removeAll { $0 == table }
+            } catch {
+                errorMessage = "Error: \(error.localizedDescription)"
+            }
+        }
+    }
+    
+    func runSQLConsole(database: String, sql: String) {
+        guard let service else { return }
+
+        Task {
+            do {
+                let result = try service.executeSQL(database: database, sql: sql)
+
+                if result.rows.isEmpty {
+                    consoleOutput = "Query executed successfully"
+                } else {
+                    let header = result.columns.joined(separator: " | ")
+                    let body = result.rows.map { $0.joined(separator: " | ") }.joined(separator: "\n")
+                    consoleOutput = "\(header)\n\(body)"
+                }
+                
+                let lowered = sql.lowercased()
+                if lowered.contains("create database") || lowered.contains("drop database") {
+                    let dbs = try service.fetchDatabases()
+                    self.databases = dbs
+                } else if lowered.contains("create table") || lowered.contains("drop table") {
+                    if let currentDB = self.selectedDatabase {
+                        let tables = try service.fetchTables(database: currentDB)
+                        self.tablesByDatabase[currentDB] = tables
+                    }
+                }
+            } catch {
+                consoleOutput = "Error: \(error.localizedDescription)"
             }
         }
     }

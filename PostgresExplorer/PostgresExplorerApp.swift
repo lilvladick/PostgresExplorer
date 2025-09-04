@@ -19,5 +19,11 @@ struct PostgresExplorerApp: App {
                 .environmentObject(connectionVM)
                 .tint(Color.indigo)
         }
+        Window("SQL Console", id: "sqlConsole") {
+            SQLConsoleView()
+                .environmentObject(connectionVM)
+                .preferredColorScheme(isDarkMode ? .dark : .light)
+                .tint(Color.indigo)
+        }.defaultSize(width: 600, height: 400)
     }
 }
